@@ -1,0 +1,43 @@
+% capitulos/cap1_introducao.tex
+
+\section{Introdução}
+
+O projeto LibrasVision propõe o desenvolvimento de uma ferramenta tecnológica assistiva focada na tradução automática da Língua Brasileira de Sinais (Libras) para texto em tempo real, utilizando o estado da arte em Visão Computacional e Aprendizado Profundo (\textit{Deep Learning}).
+
+\subsection{Problema de Pesquisa}
+
+No cenário acadêmico nacional, a inclusão de alunos surdos é garantida por lei, mas a comunicação efetiva entre estes e a comunidade ouvinte (professores, colegas e corpo administrativo) enfrenta barreiras críticas devido à escassez de Tradutores e Intérpretes de Libras (TILSP). Dados do MEC e estudos sobre a cultura surda \cite{dockens:18} apontam que o número de profissionais formados é desproporcional ao aumento de matrículas no ensino superior. Esta carência gera isolamento social e atrasos em diálogos rápidos ou avisos administrativos que não justificariam o agendamento prévio de um intérprete formal.
+
+A questão central desta pesquisa define-se como: Como utilizar modelos de \textit{Pose Estimation} integrados a redes neurais recorrentes para identificar sinais dinâmicos de Libras com precisão superior a 85\% e baixa latência em contextos universitários?
+
+\subsection{Justificativa}
+
+A relevância deste trabalho fundamenta-se na promoção da autonomia do estudante surdo, permitindo interações imediatas e reduzindo a dependência constante de terceiros para comunicações simples. Do ponto de vista técnico, o projeto desafia o estado da arte ao lidar com problemas de oclusão e a natureza sequencial dos sinais \cite{attili:24, jain:24}. Ao utilizar o MediaPipe para transformar pixels em marcos anatômicos (\textit{landmarks}), o sistema otimiza o processamento e garante maior privacidade. O sucesso deste protótipo contribui diretamente para os campos de Interação Humano-Computador (IHC) e Instituições de Ensino Inteligentes.
+
+\subsection{Revisão de Literatura}
+
+A revisão da literatura realizada identificou três achados centrais que fundamentam as escolhas técnicas e o escopo deste projeto:
+
+\textbf{Achado 1 — Modelos baseados em \textit{Pose Estimation} alcançam reconhecimento em tempo real com alta acurácia.}
+Os trabalhos de \cite{attili:24} e \cite{jain:24} demonstram que a combinação de extração de marcos corporais com classificadores de aprendizado profundo viabiliza a tradução bidirecional de línguas de sinais em tempo real, com taxas de acurácia superiores a 90\% em conjuntos de dados controlados. Esse resultado valida a viabilidade técnica da abordagem adotada no LibrasVision.
+
+\textbf{Achado 2 — Redes neurais profundas superam métodos tradicionais no reconhecimento de gestos dinâmicos.}
+\cite{abdulhussein:20} e \cite{li:22} evidenciam que arquiteturas baseadas em CNNs e RNNs oferecem desempenho significativamente superior a abordagens clássicas de visão computacional, especialmente em tarefas que envolvem variação temporal e espacial dos movimentos. O modelo LSTM, em particular, mostrou-se adequado para capturar a dependência sequencial entre quadros consecutivos, característica essencial na interpretação de sinais dinâmicos.
+
+\textbf{Achado 3 — Ferramentas tecnológicas de comunicação em língua de sinais promovem inclusão e reduzem barreiras sociais.}
+\cite{wang:24} e \cite{dockens:18} apontam que sistemas automatizados de reconhecimento de língua de sinais têm impacto direto na autonomia de pessoas surdas, reduzindo a dependência de intérpretes humanos em interações cotidianas. Os estudos ressaltam, contudo, que a aceitação dessas ferramentas depende de sua precisão e da naturalidade da interação, o que reforça a necessidade de atingir altos índices de desempenho.
+
+\subsection{Objetivo Geral}
+
+Desenvolver um sistema de visão computacional capaz de reconhecer sinais dinâmicos da Língua Brasileira de Sinais (Libras) e traduzi-los para texto em tempo real, com precisão superior a 85\% e baixa latência, visando reduzir barreiras de comunicação entre estudantes surdos e a comunidade ouvinte no ambiente acadêmico.
+
+\subsection{Objetivos Específicos}
+
+\begin{itemize}
+    \item Implementar um pipeline de captura e pré-processamento de vídeo em tempo real por meio de webcam convencional;
+    \item Integrar o framework MediaPipe Holistic para extração automatizada de marcos anatômicos (\textit{landmarks}) de mãos, rosto e tronco;
+    \item Construir um \textit{dataset} representativo de sinais de Libras voltados ao vocabulário acadêmico, contemplando diversidade de usuários e condições de iluminação;
+    \item Treinar e validar um modelo de rede neural recorrente do tipo LSTM para classificação de sequências temporais de sinais dinâmicos;
+    \item Avaliar o desempenho do sistema com base nas métricas de acurácia (meta: $\geq 85\%$) e latência de resposta;
+    \item Desenvolver uma interface de usuário para exibição das traduções em tempo real.
+\end{itemize}

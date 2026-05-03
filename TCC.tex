@@ -1,0 +1,307 @@
+%----------------------------
+% Projeto de Conclusão de Curso
+% Aluno: xpto
+%----------------------------
+\documentclass[
+	% -- opções da classe memoir --
+	%article,           % deixar comentado para monografia
+	10pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	openany,
+    twoside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	% Títulos em MAIÚSCULAS 
+    chapter={TITLE},
+    section={TITLE},
+    subsection={TITLE},
+    subsubsection={TITLE},
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional
+]{abntex2}
+
+
+% ----------------------------
+% Pacotes para acentuação
+% ----------------------------
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8] {inputenc}
+    \usepackage{lmodern}
+    \usepackage[english,french,spanish,brazil]{babel}
+    \usepackage{sty/sbc-template}
+    
+    \usepackage{tabularx}     % Largura auto
+    \usepackage{adjustbox}    % Escala/resize
+    \usepackage{longtable}    % Multi-página
+    \usepackage{rotating}     % Paisagem
+    \usepackage{booktabs}
+
+%--------------------------------------------
+% Variáveis para preencher com os seus dados
+%--------------------------------------------
+    \title{LibrasVision: Desenvolvimento de um sistema de visão computacional para o reconhecimento de sinais dinâmicos em ambientes educacionais}
+    \renewcommand{\titulo}{LibrasVision: Desenvolvimento de um sistema de visão computacional para o reconhecimento de sinais dinâmicos em ambientes educacionais}
+    \subtitle{}
+    \author{Augusto Cezar Araujo Saboia \\
+    Lorenzo Toledo \\
+    Lucas Caitano Barreto \\
+    Elizeu Barbosa Souza \\ }
+    \cidade{Brasília}
+    \ano{2026}
+    \coordenacao{Coordenação do Curso de Ciência da Computação}
+    \titulacao{Ciência da Computação}
+    \orientador{Prof. Dr. Flavia Maria}
+%--------------------------------------------
+
+
+\renewcommand{\listfigurename}{}
+\begin{document} 
+\pagestyle{empty}
+\maketitle
+\newpage
+
+
+% -------------------------------
+% Registro Bibliográfico
+% Faça as modificações nos campos que estão indicados com ??
+% -------------------------------
+\section*{}
+\vspace*{80pt}
+\begin{center}
+\begin{tcolorbox}[
+    enhanced,
+    sharp corners,
+    width=1.0\textwidth,
+    colback=white,
+    colframe=black,
+    boxrule=3pt,
+    boxsep=20pt,
+    frame style={draw=black, double distance=4pt, double, ultra thick},
+    ]
+    Saboia, Augusto Cezar Araujo.
+    \hspace{1cm} Título : LibrasVision : Desenvolvimento de um sistema de visão computacional para o reconhecimento de sinais dinâmicos em ambientes educacionais / Augusto Cezar Araujo Saboia. -- Brasília, 2026.
+    \hspace{1cm} \pageref{LastPage} f. \\[2mm]
+   	Orientador: Prof. Dr. Flavia Maria.
+    \hspace{1cm}Trabalho de Conclusão de Curso (Graduação -- Ciência da Computação) -- Centro Universitário do Distrito Federal -- UDF. Coordenação do Curso de Ciência da Computação, Brasília, DF, 2026. \\[2mm]
+   	1. Visão Computacional. 2. Língua Brasileira de Sinais. 3. Aprendizado Profundo. I. LibrasVision. \\[2mm]
+   	\begin{flushright}
+    CDU: a definir
+    \end{flushright}
+\end{tcolorbox}
+\end{center}
+
+
+% -------------------------------
+% Assinaturas
+% Faça as modificações nos campos que estão indicados com ??
+% -------------------------------
+\newpage
+\section*{}
+
+\vspace*{10pt}
+\begin{center}
+LibrasVision: Desenvolvimento de um sistema de visão computacional para o reconhecimento de sinais dinâmicos em ambientes educacionais
+\vspace*{60pt}
+\begin{adjustwidth}{6cm}{-1cm}
+Trabalho de conclusão de curso apresentado à Coordenação do Curso de Ciência da Computação, do Centro Universitário do Distrito Federal -- UDF, como requisito parcial para obtenção do grau de bacharel em Ciência da Computação. \\[2mm]
+
+Orientador: Prof. Dr. Flavia Maria.
+\end{adjustwidth}
+\vspace*{40pt}
+Brasília, \underline{\hspace{2cm}} de \underline{\hspace{4cm}} de 2026.
+
+\vspace*{60pt}
+\begin{tabular}{p{7cm}}
+    \hline
+    \centering NOME DO EXAMINADOR \\
+    \centering Titulação \\
+    \centering Instituição a qual é filiado
+\end{tabular}
+
+\vspace*{30pt}
+\begin{tabular}{p{7cm}}
+    \hline
+    \centering NOME DO EXAMINADOR \\
+    \centering Titulação \\
+    \centering Instituição a qual é filiado
+\end{tabular}
+
+\vspace*{30pt}
+\begin{tabular}{p{7cm}}
+    \hline
+    \centering NOME DO EXAMINADOR \\
+    \centering Titulação \\
+    \centering Instituição a qual é filiado
+\end{tabular}
+\end{center}
+
+\vspace*{40pt}
+Nota: \underline{\hspace{2cm}}
+
+
+% -------------------------------
+% Dedicatórias
+% -------------------------------
+\newpage
+\begin{dedicatoria2}{}
+ Dedico este trabalho à minha família e aos meus amigos pelo apoio na realização de tal.
+ 
+ Dedico este trabalho à João da Silva pelo...
+\end{dedicatoria2}
+
+% -------------------------------
+% Agradecimentos
+% -------------------------------
+\newpage
+\begin{agradecimento}{Agradecimentos}
+Agradeço, primeiramente, a Deus, por mais uma conquista; ao meu orientador, pela dedicação e correções; e aos bibliotecários pelo suporte em todas as pesquisas.
+ 
+Agradeço, segundamente, a João da silva, por mais uma conquista; ao meu orientador, pela dedicação e correções; e aos bibliotecários pelo suporte em todas as pesquisas.
+\end{agradecimento}
+
+
+% -------------------------------
+% Frase motivacional
+% -------------------------------
+\newpage
+\begin{adjustwidth}{7cm}{0cm}
+\vspace*{\fill}
+\begin{flushright}
+"A educação é a arma mais poderosa que você pode usar para mudar o mundo." \\
+\vspace*{10pt}
+Nelson Mandela
+\end{flushright}
+\end{adjustwidth}
+
+
+% -------------------------------
+% Resumo
+% -------------------------------
+\newpage
+\begin{resumo2}
+O projeto LibrasVision propõe o desenvolvimento de um sistema de visão computacional capaz de reconhecer sinais dinâmicos da Língua Brasileira de Sinais (Libras) e traduzi-los para texto em tempo real. A solução utiliza técnicas de aprendizado profundo, combinando extração de características por meio do MediaPipe com redes neurais recorrentes (LSTM) para interpretar a sequência dos movimentos. O objetivo é reduzir barreiras de comunicação no ambiente acadêmico, promovendo maior inclusão e autonomia para estudantes surdos. Espera-se que o sistema alcance alta precisão e baixa latência, tornando sua aplicação viável em contextos educacionais. 
+ 
+\vspace*{20pt}
+\textbf{Palavras-chave:} Visão Computacional, Libras, Aprendizado Profundo
+\end{resumo2}
+
+
+% -------------------------------
+% Abstract - Resumo traduzido para o Inglês
+% -------------------------------
+\newpage
+\begin{abstract}
+The LibrasVision project proposes the development of a computer vision system capable of recognizing dynamic signs of the Brazilian Sign Language (Libras) and translating them into text in real time. The solution uses deep learning techniques, combining feature extraction through MediaPipe with recurrent neural networks (LSTM) to interpret movement sequences. The objective is to reduce communication barriers in academic environments, promoting greater inclusion and autonomy for deaf students. The system is expected to achieve high accuracy and low latency, making its application feasible in educational contexts.
+
+\vspace*{20pt}
+\textbf{Keywords:} Computer Vision, Brazilian Sign Language, Deep Learning
+\end{abstract}
+
+
+% -------------------------------
+% Lista de Figuras
+% -------------------------------
+\newpage
+\listoffigures*
+
+
+% -------------------------------
+% Lista de Tabelas
+% -------------------------------
+\newpage
+\listoftables*
+
+
+% -------------------------------
+% Lista de Abreviaturas e Siglas
+% -------------------------------
+% No documento use: Isso é um \ac{ex}.
+% --------------------------------
+
+\chapter*{ABREVIATURAS E SIGLAS}
+
+\section*{Abreviaturas}
+\begin{acronym}
+  \acro{ex}{Exemplo}
+  \acro{etc}{Etcétera}
+  \acro{apx}{Aproximadamente}
+  % Adicione mais entradas conforme necessário
+\end{acronym}
+
+\section*{Siglas}
+\begin{acronym}
+  \acro{CNI}{Confederação Nacional da Indústria}
+  \acro{CNC}{Confederação Nacional do Comércio}
+  % Adicione mais entradas conforme necessário
+\end{acronym}
+
+\clearpage
+
+
+% -------------------------------
+% Sumario
+% -------------------------------
+\tableofcontents*
+%\cleardoublepage
+
+ 
+% -------------------------------
+% INICIO DO TRABALHO - CAPÍTULOS
+% -------------------------------
+\textual 
+
+\chapter{Introdução}
+   \input{capitulos/cap1_introducao}
+
+% *** ADICIONADO: capítulo de Metodologia ***
+\chapter{Metodologia}
+    \input{capitulos/metodologia}
+% ********************************************
+
+\chapter{Desenvolvimento}
+    \input{capitulos/desenvolvimento}
+
+\chapter{Conclusão}
+    \input{capitulos/conclusao}
+    
+
+% --------------------------------------
+% REFERÊNCIAS
+% --------------------------------------
+\bibliographystyle{plain}
+
+% As citações abaixo garantem que as referências apareçam mesmo que não citadas explicitamente no texto acima
+\nocite{attili:24, abdulhussein:20, dockens:18, jain:24, li:22, wang:24}
+
+
+% Colocar SUAS referências no arquivo TCC.bib
+% Pode ser criada com o BibDesk - https://bibdesk.sourceforge.io/
+% Ou manualmente seguindo o arquivo que deixei como modelo
+% --------------------------------------
+\bibliography{TCC}
+  
+% --------------------------------------
+% GLOSSÁRIO
+% --------------------------------------
+\newpage
+    \chapter*{GLOSSÁRIO}
+    \input{capitulos/glossario}
+
+% --------------------------------------
+% APÊNDICE
+% --------------------------------------
+    \chapter*{APÊNDICE}
+    \input{capitulos/apendice}    
+
+% --------------------------------------
+% ANEXOS
+% --------------------------------------
+    \chapter*{ANEXOS}
+    \input{capitulos/anexo}
+
+
+\end{document}

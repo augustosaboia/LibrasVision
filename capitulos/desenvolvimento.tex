@@ -1,0 +1,66 @@
+\section{Fundamentação Teórica}
+
+O desenvolvimento do projeto LibrasVision fundamenta-se em conceitos da área de Inteligência Artificial, com ênfase em Visão Computacional e Aprendizado Profundo. A Visão Computacional permite que sistemas computacionais interpretem imagens e vídeos, sendo essencial para o reconhecimento de gestos e movimentos humanos. Já o Aprendizado Profundo, por meio de redes neurais, possibilita a identificação de padrões complexos em dados visuais.
+
+Nesse contexto, destacam-se as Redes Neurais Convolucionais (CNNs), amplamente utilizadas para extração de características em imagens, e as Redes Neurais Recorrentes (RNNs), especialmente o modelo LSTM (Long Short-Term Memory), que é capaz de analisar dados sequenciais ao longo do tempo. Essa combinação é fundamental para o reconhecimento de sinais dinâmicos da Libras, que envolvem não apenas a configuração das mãos, mas também movimento e expressões faciais.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/deepL.png}
+    \caption{Conceitos de Deep Learning aplicados ao reconhecimento de padrões em dados visuais}
+    \label{fig:deeplearning}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/libras.png}
+    \caption{Exemplos de sinais dinâmicos na Língua Brasileira de Sinais}
+    \label{fig:libras}
+\end{figure}
+
+\section{Arquitetura do Sistema}
+
+O sistema proposto foi estruturado em um pipeline dividido em etapas bem definidas, conforme ilustrado no diagrama apresentado na página 3 do documento.
+
+\subsection{Aquisição de Dados}
+
+A primeira etapa consiste na captura de vídeo em tempo real por meio de uma webcam, operando a aproximadamente 30 quadros por segundo (FPS). Essa captura contínua permite registrar os movimentos necessários para a identificação dos sinais.
+
+\subsection{Extração de Características}
+
+Nesta fase, utiliza-se o framework MediaPipe Holistic, responsável por identificar e rastrear pontos-chave do corpo humano (landmarks), incluindo mãos, rosto e tronco. Ao todo, são extraídos centenas de pontos tridimensionais (x, y, z), reduzindo a necessidade de processar imagens completas e tornando o sistema mais eficiente.
+
+\subsection{Modelagem Temporal}
+
+Os dados obtidos são organizados em sequências e enviados para uma rede neural do tipo LSTM. Essa rede é responsável por interpretar a dinâmica dos movimentos ao longo do tempo, permitindo diferenciar sinais que possuem configurações semelhantes, mas movimentos distintos.
+
+\subsection{Tradução e Interface}
+
+Por fim, o sistema realiza a classificação do sinal com base na maior probabilidade calculada pelo modelo e exibe o resultado em formato de texto para o usuário. Essa etapa representa a interação direta com o usuário final, garantindo a usabilidade do sistema
+
+\section{Construção do Dataset}
+
+Para o treinamento do modelo, é necessário um conjunto de dados (dataset) representativo. Assim, foi realizado o mapeamento e a coleta de sinais relacionados ao contexto acadêmico, como “biblioteca”, “prova” e “secretaria”.
+
+A construção do dataset considerou a diversidade de usuários, buscando minimizar vieses no reconhecimento. Além disso, os dados passaram por etapas de tratamento e padronização, garantindo maior qualidade para o treinamento do modelo.
+
+\section{Treinamento e Validação do Modelo}
+
+O treinamento do modelo LSTM foi realizado com base nas sequências de dados extraídas. Durante esse processo, foram ajustados hiperparâmetros como número de camadas, taxa de aprendizado e quantidade de épocas.
+
+A validação do modelo teve como objetivo medir a acurácia e verificar se o sistema atende ao requisito de precisão superior a 85%, conforme definido no problema de pesquisa.
+
+\section{Avaliação de Desempenho}
+
+A avaliação do sistema foi realizada com foco em dois aspectos principais:
+
+Acurácia: capacidade do modelo em identificar corretamente os sinais;
+Latência: tempo de resposta entre a execução do sinal e a exibição da tradução.
+
+Esses critérios são essenciais para garantir a viabilidade do uso do sistema em tempo real, especialmente em ambientes educacionais, onde a comunicação precisa ser rápida e eficiente.
+
+\section{Considerações sobre a Implementação}
+
+O desenvolvimento do LibrasVision evidencia a importância da integração entre diferentes tecnologias, como captura de vídeo, processamento de dados e redes neurais. A escolha por trabalhar com landmarks ao invés de imagens completas mostrou-se eficiente, reduzindo custos computacionais e aumentando a privacidade dos usuários.
+
+Além disso, o uso de um pipeline modular facilita futuras melhorias, como a expansão do vocabulário e a adaptação do sistema para outros contextos além do acadêmico.
