@@ -29,12 +29,9 @@
 \usepackage{lastpage}
 \usepackage{indentfirst}
 \usepackage{wrapfig} % Imagens que se cruzam com texto
-\usepackage[a4paper, inner=1.5cm, outer=2cm, top=2cm, bottom=3cm, bindingoffset=1cm]{geometry} %
-\usepackage[alf]{abntex2cite} % Padrão bibliográfico
-\usepackage{microtype} 				% para melhorias de justificação
+\usepackage[a4paper, inner=1.5cm, outer=2cm, top=2cm, bottom=3cm, bindingoffset=1cm]{geometry}
 \usepackage{lettrine}				% letras capitulares
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 \usepackage{acronym}
 
 % Seleciona Linguagem padrão
@@ -247,4 +244,7 @@
 \makeevenhead{abntarticleheadings}{}{}{\thepage}
 \makeoddhead{abntarticleheadings}{}{}{\thepage}
 
-\renewcommand{\textual}
+\renewcommand{\textual}{%
+	\PRIVATEcleardoublepage%
+	\pagestyle{abntbookheadings}%
+}
