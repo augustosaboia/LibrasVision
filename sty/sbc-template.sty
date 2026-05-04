@@ -41,13 +41,9 @@
 \frenchspacing 
 
 \makepagestyle{abntbookheadings}
-\makeevenhead{abntbookheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit{\nouppercase\leftmark}}
-\makeoddhead{abntbookheadings}{\ABNTEXfontereduzida\textit{\nouppercase\rightmark}}{}{\ABNTEXfontereduzida\thepage}
+\makeevenhead{abntbookheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit\leftmark}
+\makeoddhead{abntbookheadings}{\ABNTEXfontereduzida\textit\rightmark}{}{\ABNTEXfontereduzida\thepage}
 \makeheadrule{abntbookheadings}{\textwidth}{\normalrulethickness}
-
-% Redefine chapter and section marks para header/footer
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{#1}}
 
 % --------------------------------------------------------
 % Citação
