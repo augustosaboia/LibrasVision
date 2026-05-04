@@ -1,5 +1,13 @@
 % capitulos/cap1_introducao.tex
 
+\section{Introdução}
+
+A Língua Brasileira de Sinais (Libras) é reconhecida como a língua oficial da comunidade surda brasileira, garantida pelo Decreto 5.626 de 2005. Apesar dessa garantia legal, pessoas surdas enfrentam diariamente barreiras significativas de comunicação em diversos ambientes, particularmente no contexto acadêmico. A falta de intérpretes qualificados e a dificuldade de acesso a ferramentas de tecnologia assistiva impedem a plena participação e autonomia de estudantes surdos nas universidades.
+
+A tecnologia tem o potencial de transformar este cenário através de soluções inovadoras em visão computacional. O avanço recente em técnicas de Inteligência Artificial e aprendizado profundo permitiu o desenvolvimento de sistemas capazes de processar e interpretar movimentos complexos em tempo real. Estes sistemas podem servir como complemento aos intérpretes tradicionais ou como ferramentas auxiliares que promovem maior autonomia e inclusão.
+
+O projeto LibrasVision surge como resposta a esta necessidade, propondo o desenvolvimento de um sistema inteligente de reconhecimento automático de sinais dinâmicos da Libras. Este trabalho combina técnicas de extração de características corporais com redes neurais recorrentes para alcançar tradução em tempo real com alta precisão, reduzindo barreiras de comunicação no ambiente educacional e contribuindo para maior inclusão social.
+
 \section{Problema de Pesquisa}
 
 No cenário acadêmico nacional, a inclusão de alunos surdos é garantida por lei, mas a comunicação efetiva entre estes e a comunidade ouvinte (professores, colegas e corpo administrativo) enfrenta barreiras críticas devido à escassez de Tradutores e Intérpretes de Libras (TILSP). Dados do MEC e estudos sobre a cultura surda \cite{dockens:18} apontam que o número de profissionais formados é desproporcional ao aumento de matrículas no ensino superior. Esta carência gera isolamento social e atrasos em diálogos rápidos ou avisos administrativos que não justificariam o agendamento prévio de um intérprete formal.
@@ -22,20 +30,3 @@ Os trabalhos de \cite{attili:24} e \cite{jain:24} demonstram que a combinação 
 
 \textbf{Achado 3 — Ferramentas tecnológicas de comunicação em língua de sinais promovem inclusão e reduzem barreiras sociais.}
 \cite{wang:24} e \cite{dockens:18} apontam que sistemas automatizados de reconhecimento de língua de sinais têm impacto direto na autonomia de pessoas surdas, reduzindo a dependência de intérpretes humanos em interações cotidianas. Os estudos ressaltam, contudo, que a aceitação dessas ferramentas depende de sua precisão e da naturalidade da interação, o que reforça a necessidade de atingir altos índices de desempenho.
-
-\section{Objetivos}
-
-\subsection{Objetivo Geral}
-
-Desenvolver um sistema de visão computacional capaz de reconhecer sinais dinâmicos da Língua Brasileira de Sinais (Libras) e traduzi-los para texto em tempo real, com precisão superior a 85\% e baixa latência, visando reduzir barreiras de comunicação entre estudantes surdos e a comunidade ouvinte no ambiente acadêmico.
-
-\subsection{Objetivos Específicos}
-
-\begin{itemize}
-    \item Implementar um pipeline de captura e pré-processamento de vídeo em tempo real por meio de webcam convencional;
-    \item Integrar o framework MediaPipe Holistic para extração automatizada de marcos anatômicos (\textit{landmarks}) de mãos, rosto e tronco;
-    \item Construir um \textit{dataset} representativo de sinais de Libras voltados ao vocabulário acadêmico, contemplando diversidade de usuários e condições de iluminação;
-    \item Treinar e validar um modelo de rede neural recorrente do tipo LSTM para classificação de sequências temporais de sinais dinâmicos;
-    \item Avaliar o desempenho do sistema com base nas métricas de acurácia (meta: $\geq 85\%$) e latência de resposta;
-    \item Desenvolver uma interface de usuário para exibição das traduções em tempo real.
-\end{itemize}
