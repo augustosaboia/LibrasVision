@@ -110,8 +110,8 @@
    	    \vspace*{50pt}
 		{\normalsize \textbf{\begin{tabular}[t]{c}\@author\end{tabular}}\par}
    	    \vspace*{130pt}
-		{\XVIPT\@title\par}
-		{\XVIPT\@subtitle\par}
+		{\XVIPT\MakeUppercase{\@title}\par}
+		{\XVIPT\MakeUppercase{\@subtitle}\par}
 	    \vglue 60pt plus 30pt minus 3pt
         \vspace*{\fill}
 		{\XVIPT\MakeUppercase\@cidade \\ \@ano \par}
@@ -133,7 +133,7 @@
 	\end{adjustwidth}
     \vspace*{\fill}
 	\begin{center}
-		{\XVIPT\MakeUppercase\@cidade\par}
+		{\XVIPT\MakeUppercase\@cidade \\ \@ano\par}
 	\end{center}\par
 }
 
@@ -247,6 +247,4 @@
 \makeevenhead{abntarticleheadings}{}{}{\thepage}
 \makeoddhead{abntarticleheadings}{}{}{\thepage}
 
-\renewcommand{\textual}{%
-  \pagestyle{abntarticleheadings}%
-}
+\renewcommand{\textual}
