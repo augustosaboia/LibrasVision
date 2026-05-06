@@ -4,6 +4,14 @@ Esta pesquisa classifica-se como \textbf{aplicada} quanto à sua natureza, pois 
 
 O desenvolvimento do projeto foi organizado nas seguintes etapas:
 
+\section{Contexto da Pesquisa}
+
+A pesquisa é conduzida no Brasil, especificamente em contexto universitário em Brasília, Distrito Federal, durante o período de fevereiro a junho de 2026. Este contexto mostra-se adequado para o trabalho uma vez que concentra potenciais participantes surdos do ensino superior --- público direto beneficiado pela solução ---, além de possibilitar a construção de um dataset com sinais específicos ao vocabulário acadêmico brasileiro. A delimitação ao ambiente universitário justifica-se pela necessidade identificada em instituições de ensino superior nacionais de ampliar recursos de acessibilidade comunicativa para estudantes surdos, alinhando-se ao decreto 5.626/2005 que determina inclusão educacional de pessoas surdas no ensino superior. Adicionalmente, o ambiente universitário oferece condições controladas necessárias às etapas iniciais de desenvolvimento do sistema, permitindo posterior validação em contextos menos estruturados.
+
+\section{Participantes}
+
+A coleta de dados será realizada com 4 voluntários, selecionados conforme os seguintes critérios: (i) fluência em Libras como primeira língua ou língua de uso cotidiano; (ii) experiência mínima de dois anos de uso frequente de Libras; (iii) maior de 18 anos; (iv) consentimento informado documentado. Os participantes apresentam diversidade em termos de perfis físicos --- incluindo variação em altura, compleição física, extensão de membros superiores e velocidade de sinalização --- de modo a minimizar vieses de representatividade no dataset. Esses critérios de seleção mostram-se adequados pois garantem que os dados coletados reflitam o uso real da língua por falantes nativos ou fluentes, aumentando a validade ecológica do modelo treinado e sua capacidade de generalização quando aplicado a novos usuários com características físicas distintas.
+
 \section{Revisão Bibliográfica}
 
 A primeira etapa consistiu no levantamento e análise da literatura existente sobre reconhecimento de línguas de sinais, visão computacional e aprendizado profundo. Foram consultadas bases de dados como IEEE Xplore e Google Scholar, com foco em trabalhos publicados entre 2018 e 2024 \cite{li:22, abdulhussein:20, dockens:18, wang:24}.
@@ -12,13 +20,11 @@ Os critérios de inclusão adotados foram: (i) publicações em inglês ou portu
 
 \section{Definição do Escopo e Coleta de Dados}
 
-Foram selecionados sinais de Libras relacionados ao vocabulário acadêmico, como ``biblioteca'', ``prova'' e ``secretaria'', por serem de uso frequente e relevante no contexto universitário. A coleta de dados foi realizada com voluntários em ambiente controlado, com webcam posicionada frontalmente, garantindo diversidade em termos de perfis físicos e condições de iluminação.
-
-Cada sinal foi gravado em múltiplas sequências de 30 quadros a 30 FPS, gerando um volume de dados suficiente para o treinamento supervisionado do modelo. Os dados foram anonimizados e armazenados localmente, respeitando princípios de privacidade dos participantes.
+Serão selecionados sinais de Libras relacionados ao vocabulário acadêmico, como ``biblioteca'', ``prova'' e ``secretaria'', por serem de uso frequente e relevante no contexto universitário. A coleta de dados será realizada com os voluntários em ambiente controlado, com webcam posicionada frontalmente a uma distância de aproximadamente 1,5 metros do participante, garantindo enquadramento que capture completamente o corpo acima da cintura. Cada sinal será gravado em múltiplas sequências de 30 quadros a 30 FPS, com repetição mínima de 5 vezes por participante e por sinal, gerando um volume de dados suficiente para o treinamento supervisionado do modelo. A duração total da coleta de dados está estimada em 3 meses, contemplando agendamento com cada participante, instrução sobre o protocolo, gravação e documentação. Os dados serão anonimizados mediante atribuição de identificadores numéricos, dissociando as gravações de qualquer informação pessoal. Os arquivos serão armazenados localmente em servidor seguro com acesso restrito, respeitando princípios de privacidade dos participantes e em conformidade com diretrizes éticas de pesquisa com seres humanos.
 
 \section{Implementação do Pipeline}
 
-O pipeline foi desenvolvido em Python, utilizando as seguintes tecnologias:
+O pipeline será desenvolvido em Python, utilizando as seguintes tecnologias:
 
 \begin{itemize}
     \item \textbf{OpenCV}: captura e processamento de \textit{frames} de vídeo em tempo real;
@@ -31,25 +37,29 @@ A escolha por trabalhar com \textit{landmarks} ao invés de imagens completas re
 
 \section{Treinamento e Validação do Modelo}
 
-O modelo LSTM foi treinado com os dados coletados, utilizando divisão na proporção de 80\% para treino e 20\% para validação. Os hiperparâmetros ajustados incluíram número de camadas, taxa de aprendizado (\textit{learning rate}) e número de épocas. O critério de aceitação estabelecido foi acurácia superior a 85\% na base de validação.
+O modelo LSTM será treinado com os dados coletados, utilizando divisão na proporção de 80\% para treino e 20\% para validação. Os hiperparâmetros a serem ajustados incluem número de camadas LSTM, taxa de aprendizado (\textit{learning rate}), regularização por dropout e número de épocas. O critério de aceitação estabelecido é acurácia superior a 85\% na base de validação, sendo este patamar alinhado com taxas reportadas na literatura para tarefas similares de reconhecimento de gestos dinâmicos em contextos controlados.
+
+\section{Análise de Dados}
+
+Após a conclusão do treinamento, a análise dos resultados será conduzida em duas etapas complementares. Na primeira etapa, será realizada análise quantitativa do desempenho do modelo, calculando-se acurácia global, precisão, revogação (\textit{recall}) e F1-score para cada classe de sinal reconhecido. Esses indicadores serão obtidos através da avaliação do modelo sobre o conjunto de teste --- compostos por 20\% dos dados originais, correspondentes a gravações de participantes não vistos durante o treinamento. A métrica de acurácia global será complementada por uma matriz de confusão, que permitirá identificar quais sinais são frequentemente confundidos entre si, orientando futuras melhorias no modelo. Latência será medida como o intervalo de tempo entre o fim da execução do sinal pelo usuário e a exibição da tradução em texto na interface, sendo registrada em milissegundos. Na segunda etapa, será realizada análise qualitativa, incluindo inspeção visual de erros de classificação --- como padrões de movimentos específicos que causem maior taxa de confusão --- e documentação de cenários de falha do sistema. Essa abordagem combinada, quantitativa e qualitativa, mostra-se adequada pois permite não apenas quantificar o desempenho global do sistema, mas também identificar as causas-raiz de falhas, informando ajustes de hiperparâmetros, expansão do vocabulário ou melhorias futuras na captura de dados.
 
 \section{Avaliação do Sistema}
 
-O sistema foi avaliado segundo dois critérios principais:
+O sistema será avaliado segundo dois critérios principais:
 
 \begin{itemize}
     \item \textbf{Acurácia}: percentual de sinais corretamente classificados pelo modelo em relação ao total de amostras do conjunto de teste;
     \item \textbf{Latência}: intervalo de tempo entre a execução do sinal pelo usuário e a exibição da tradução em texto na interface.
 \end{itemize}
 
-Os testes foram realizados com usuários que não participaram da etapa de coleta, de modo a verificar a robustez do modelo frente a variações não vistas durante o treinamento. Essa abordagem garante maior validade externa aos resultados obtidos \cite{attili:24}.
+Os testes serão realizados com usuários que não participarem da etapa de coleta, de modo a verificar a robustez do modelo frente a variações não vistas durante o treinamento. Essa abordagem garante maior validade externa aos resultados obtidos \cite{attili:24}.
 
 \section{Limitações do Estudo}
 
-O mapeamento antecipado das limitações é essencial para delimitar o escopo do projeto e orientar trabalhos futuros. Duas limitações principais foram identificadas:
+O mapeamento antecipado das limitações é essencial para delimitar o escopo do projeto e orientar trabalhos futuros. Duas limitações principais são identificadas:
 
 \textbf{Limitação 1 — Escopo restrito do vocabulário e viés do dataset.}
-O \textit{dataset} construído abrange apenas sinais relacionados ao contexto acadêmico, o que restringe a aplicabilidade do sistema a esse domínio específico. Além disso, a coleta foi realizada em ambiente controlado com um número limitado de voluntários, o que pode introduzir viés de representatividade — usuários com características físicas, velocidades de execução ou estilos de sinalização distintos dos presentes no \textit{dataset} podem obter taxas de reconhecimento inferiores às reportadas. Essa limitação é documentada de forma análoga em \cite{abdulhussein:20}, que ressalta a dificuldade de generalização de modelos treinados em conjuntos de dados pequenos.
+O \textit{dataset} a ser construído abrange apenas sinais relacionados ao contexto acadêmico, o que restringe a aplicabilidade do sistema a esse domínio específico. Além disso, a coleta será realizada em ambiente controlado com um número limitado de voluntários, o que pode introduzir viés de representatividade — usuários com características físicas, velocidades de execução ou estilos de sinalização distintos dos presentes no \textit{dataset} podem obter taxas de reconhecimento inferiores às reportadas. Essa limitação é documentada de forma análoga em \cite{abdulhussein:20}, que ressalta a dificuldade de generalização de modelos treinados em conjuntos de dados pequenos.
 
 \textbf{Limitação 2 — Dependência de condições controladas de captura.}
-O desempenho do sistema está condicionado à qualidade da captura de vídeo: iluminação inadequada, oclusão parcial das mãos ou ângulos desfavoráveis da câmera podem degradar a extração de \textit{landmarks} pelo MediaPipe, comprometendo a classificação posterior. Ambientes universitários reais apresentam variabilidade de iluminação e posicionamento que não foram completamente reproduzidos na fase de coleta, o que pode reduzir a acurácia em cenários de uso efetivo. \cite{jain:24} identifica desafio semelhante ao tratar da robustez de sistemas de reconhecimento em condições não controladas.
+O desempenho do sistema estará condicionado à qualidade da captura de vídeo: iluminação inadequada, oclusão parcial das mãos ou ângulos desfavoráveis da câmera podem degradar a extração de \textit{landmarks} pelo MediaPipe, comprometendo a classificação posterior. Ambientes universitários reais apresentam variabilidade de iluminação e posicionamento que não serão completamente reproduzidos na fase de coleta, o que pode reduzir a acurácia em cenários de uso efetivo. \cite{jain:24} identifica desafio semelhante ao tratar da robustez de sistemas de reconhecimento em condições não controladas.
